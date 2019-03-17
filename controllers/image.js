@@ -3,8 +3,9 @@ const Clarifai = require('clarifai');
 const app = new Clarifai.App({apiKey: process.env.CLARIFAIKEY});
 
 const handleApiUrl = (req, res) => {
-	app.models.predict(Clarifai.FACE_DETECT_MODEL, req.body.input)
+	app.models.predict('e466caa0619f444ab97497640cefc4dc', req.body.input)
 	.then(data =>{
+		console.log(data);
 		res.json(data);
 	})
 	.catch(err => res.status(400).json('unable to work with API'))
